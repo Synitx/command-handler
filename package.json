@@ -1,0 +1,19 @@
+{
+  "name": "command-handler-ts",
+  "version": "1.0.0",
+  "description": "A simple command handler written in typescript.",
+  "main": "dist/bot.js",
+  "scripts": {
+    "init": "npm run build && npm run start",
+    "dev": "nodemon --config nodemon.json src/bot.ts",
+    "build": "tsc",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "commandhandler",
+    "typescript"
+  ],
+  "author": "synitx",
+  "license": "ISC"
+}
