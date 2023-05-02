@@ -83,9 +83,13 @@ if (Object.values(keys).includes('null')) throw new Error('[SCH]: Bot token is n
     const rest = new REST({ version: '9' }).setToken(keys.ClientToken);
 
     if (settings.slashCommands.global) {
+        var cmds: Array<any> = []
+        bot.commands.forEach(cmd => {
+            cmds.push(cmd.data.toJSON())
+        })
         rest.put(Routes.applicationCommands(
             bot.user?.id ?? settings.botId
-        ), { body: bot.commands }).then(() => {
+        ), { body: cmds }).then(() => {
             console.log('[BOT]', ': Registered application commands for global.')
         })
             .catch(console.error);
